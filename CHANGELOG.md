@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.2.0] - 2026-08-22
+
+### Added
+- Step 7: Embedded skill content blocks in CLAUDE.md must be deleted as a unit (trigger map rows + full content block), not just the map rows
+- Step 8: New verification rows — valid state entries, projects sync, CLAUDE.md cleanliness
+- Health check: orphaned project directory detection (disk has dir but .claude.json projects has no entry)
+
+### Fixed
+- CLAUDE.md cleanup now correctly removes full embedded skill blocks (unlazy, adversarial-verify) instead of only the trigger map entries
+- Health check detects orphaned project directories on disk that are missing from .claude.json
+
 ## [v1.1.0] - 2026-08-21
 
 ### Added
