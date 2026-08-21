@@ -11,6 +11,7 @@
 ### Fixed
 - Stale `skillUsage`/`pluginUsage` entries in `.claude.json` now correctly cleaned
 - `python3` → `python` in health check script for Windows compatibility
+- Removed empty `extension-lifecycle` skill directory (no SKILL.md was present)
 
 ### Changed
 - Merged bilingual CLAUDE.md content into SKILL.md as the canonical reference
