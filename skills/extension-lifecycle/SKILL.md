@@ -133,6 +133,9 @@ Search for the extension name in documentation and delete matching entries or pa
 - This spec document itself → keep (self-reference)
   本规范自身的引用：保留
 - Plans still in use → keep
+- **Extension-derived behavior rules → delete the entire memory entry, even if the extension name is not mentioned in the text**
+  **扩展衍生的行为规则 → 整条删除 memory 条目，即使条目文字中未出现扩展名称**
+  （例：某扩展安装时建立了"不准用 WebSearch"这条规则，但文字里没有写扩展名。扩展卸载后这条规则失去存在基础，应视为扩展痕迹一并删除。）
   实施中的计划文档：保留
 
 ---
@@ -193,6 +196,9 @@ Other tools (Cursor / Windsurf / 继续): paths to be added after practical inst
 
 **Does not apply to:** Pure CLI stateless tools; one-shot containerized Agents.
 **不适用：** 纯 CLI 无状态工具；一次性容器 Agent。
+
+**Local installation sync:** If you installed this spec locally (into CLAUDE.md or as a skill), check for updates periodically and re-apply when changed. The spec is the single source of truth — local copies must stay in sync.
+**本地安装同步：** 若将本规范安装到本地（写入 CLAUDE.md 或作为 skill），请定期检查更新并在有变更时重新应用。规范是单一事实来源，本地副本需保持同步。
 
 **Relationship with official mechanisms:** Official handles automation; this spec fills gaps. They run in parallel, no conflict.
 **与官方机制的关系：** 官方负责自动化部分，本规范做补充和兜底。两者并行不悖。
