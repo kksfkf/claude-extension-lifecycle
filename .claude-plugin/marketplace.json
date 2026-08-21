@@ -1,0 +1,15 @@
+{
+  "name": "extension-lifecycle",
+  "displayName": "AI Tool Extension Lifecycle / AI工具扩展生命周期",
+  "shortDescription": "8-step deterministic cleanup flow for MCP Server, Skill, Hook, and Plugin across all AI tools.",
+  "longDescription": "A universal cleanup specification for AI programming tools.\n\n当卸载任何 AI 工具扩展时，8步流程自动移除所有痕迹——配置、数据、状态、跨工具副本、备份、文档引用。\n\nExtension types covered:\n- MCP Server: config registration + data directory + state counter\n- Skill: skill directory + usage count + doc references\n- Hook: hook script + config file entries\n- Plugin: plugin directory + bundled skill/hook + state file\n\nOriginally refined from cleaning ruflo, claude-flow, camofox-browser, weixin-platform-setup, herdr across Claude Code, cc-switch, and hermes.",
+  "version": "1.0.0",
+  "author": { "name": "kksfkf", "github": "kksfkf" },
+  "repository": "kksfkf/claude-extension-lifecycle",
+  "license": "MIT",
+  "platforms": ["claude-code", "cursor", "windsurf", "continue"],
+  "keywords": ["cleanup", "extension", "uninstall", "lifecycle", "mcp", "skill", "plugin", "清理"],
+  "categories": ["productivity", "configuration"],
+  "installMethod": "manual",
+  "installInstructions": "curl -sL https://raw.githubusercontent.com/kksfkf/claude-extension-lifecycle/main/skills/extension-lifecycle/SKILL.md -o ~/.claude/skills/extension-lifecycle/SKILL.md"
+}

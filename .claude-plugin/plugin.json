@@ -1,0 +1,24 @@
+{
+  "name": "extension-lifecycle",
+  "version": "1.0.0",
+  "displayName": "AI Tool Extension Lifecycle / AI工具扩展生命周期",
+  "description": "8-step cleanup flow for MCP Server, Skill, Hook, and Plugin extensions. Extends across all AI programming tools. / 8步清理流程，覆盖MCP Server、Skill、Hook、Plugin四类扩展，适用于所有AI编程助手。",
+  "author": "kksfkf",
+  "keywords": ["cleanup", "extension", "mcp", "skill", "plugin", "lifecycle", "清理", "扩展"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kksfkf/claude-extension-lifecycle"
+  },
+  "skills": [
+    {
+      "name": "extension-lifecycle",
+      "path": "skills/extension-lifecycle/SKILL.md"
+    }
+  ],
+  "commands": [],
+  "hooks": {},
+  "mcpServers": {},
+  "requirements": {
+    "claudeCodeVersion": ">=2.1.0"
+  }
+}
