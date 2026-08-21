@@ -168,6 +168,7 @@ Search for the extension name in documentation and delete matching entries or pa
 - This spec document itself → keep (self-reference)
 - Plans still in use → keep
 - **Extension-derived behavior rules → delete the entire memory entry, even if the extension name is not mentioned in the text**
+- **Embedded skill content blocks in CLAUDE.md → delete the entire block** (example: unlazy, adversarial-verify skill instruction texts were directly embedded in CLAUDE.md as installation traces; removal requires deleting both the trigger map rows and the full embedded content block, not just the map rows).
 
 ---
 
@@ -181,6 +182,9 @@ Search for the extension name in documentation and delete matching entries or pa
 | Data directory gone / 数据目录无残留 | `ls ~/<pkg-name>/ 2>&1` | Does not exist / 不存在 |
 | State file valid / 状态文件合法 | JSON parse check | No error / 无报错 |
 | Plugin dir gone / 插件目录无残留 | `ls ~/.claude/plugins/<pkg-name>/ 2>&1` | Does not exist / 不存在 |
+| Valid state entries / 状态条目有效 | Check all pluginUsage/skillUsage entries point to existing dirs | No stale entries / 无 stale 条目 |
+| Projects synced / 项目目录同步 | `ls ~/.claude/projects/` vs `.claude.json` → `projects` keys | No orphaned directories / 无孤儿目录 |
+| CLAUDE.md clean / CLAUDE.md 干净 | `grep -n "<ext-name>" ~/.claude/CLAUDE.md` | No remaining references (including embedded blocks) / 无残留引用（含内嵌内容块） |
 | Clean startup / 启动无报错 | Restart tool | No hook/MCP errors / 无 hook/MCP 报错 |
 
 All checks pass → cleanup complete.
@@ -226,6 +230,15 @@ for field in ['skillUsage', 'pluginUsage']:
         ]
         if not any(os.path.exists(p) for p in paths):
             issues.append(f'{field}.{key} 指向的目录不存在')
+# Also check projects: disk dirs with no corresponding state entry
+projects_dir = os.path.expanduser('~/.claude/projects/')
+if os.path.isdir(projects_dir):
+    disk_projects = set(os.listdir(projects_dir))
+    state_projects = set(data.get('projects', {}).keys())
+    for dp in disk_projects:
+        dp_norm = os.path.join(projects_dir, dp)
+        if not any(dp_norm in sp or sp in dp_norm for sp in state_projects):
+            issues.append(f'project {dp}: directory exists on disk but not in .claude.json projects')
 if issues:
     print('ISSUES:', '; '.join(issues))
 else:
