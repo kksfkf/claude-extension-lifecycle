@@ -161,8 +161,8 @@ All checks pass → cleanup complete. / 全部通过 → 清理完成。
 These are **not** extension traces and should not be cleaned:
 以下内容**不属于**扩展安装痕迹，不在清理范围内：
 
-- User's own memory / research documents (unless the extension explicitly wrote into them)
-  用户自己的 memory / research 文档（除非扩展主动写入了这些文件）
+
+
 - Official tool baseline config (env, permissions defaults)
   官方工具的基础配置（env、permissions 默认值）
 - Other extensions' independent data

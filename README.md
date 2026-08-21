@@ -57,7 +57,7 @@ See [SKILL.md](skills/extension-lifecycle/SKILL.md) for the full bilingual speci
 ## 设计理念 / Design Principles
 
 - **不问用户** — 清理是确定性的，不需要确认 / No user confirmation — cleanup is deterministic
-- **只删扩展的痕迹** — 用户自己的 memory / research 文档不在清理范围内 / Only delete extension traces — user's own memory/research stays
+- **只删扩展的痕迹** — memory、research 中提及已卸载扩展的所有内容一并删除 / Only delete extension traces — all memory/research entries referencing the uninstalled extension are removed
 - **八步闭环** — 从卸载到验证，每步有明确的检查点 / 8-step closed loop — each step has a clear verification point
 - **通用性** — 适用于任何具有多层架构的 AI 编程助手 / Universal — works for any AI assistant with multi-layer architecture
 
