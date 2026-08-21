@@ -1,36 +1,16 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/),
-and this project adheres to [Semantic Versioning](https://semver.org/).
-
----
-
-## [1.0.0] - 2026-08-21
+## [v1.1.0] - 2026-08-21
 
 ### Added
-- 8-step cleanup flow specification for MCP Server, Skill, Hook, Plugin
-- Bilingual support (English + Chinese) across all documents
-- Extension trace map: config / data / state layers for each extension type
-- Cross-tool copy cleanup rules (cc-switch, hermes, Cursor, Windsurf, etc.)
-- Memory frontmatter-safe deletion rules (整条删除，不拆 YAML)
-- Verification checklist with 7 validation points
-- Installation guide (3 methods: direct install, CLAUDE.md merge, manual)
-- `.claude-plugin/` manifests for marketplace distribution
-- `marketplace/skill.json` for mcpmarket-style publishing
+- Step 2.5: Pre-cleanup scan mechanism (扩展扫描) for discovering unknown extension traces
+- Skill source directory (`~/.agents/skills/`) added to type table and tool mapping
+- Extension registry (optional) for unified tracking of installed extensions
+- Session startup health check using `python` (cross-platform, fixes Windows `python3` issue)
 
-### Origin
-Refined from real-world cleanup of extensions: ruflo, claude-flow, camofox-browser, weixin-platform-setup, herdr across Claude Code, cc-switch, and hermes.
+### Fixed
+- Stale `skillUsage`/`pluginUsage` entries in `.claude.json` now correctly cleaned
+- `python3` → `python` in health check script for Windows compatibility
 
-### Scope
-Covers all four extension types for any AI programming assistant with multi-layer architecture.
-
----
-
-## [Unreleased]
-
-### Planned
-- [ ] Add path mappings for Cursor / Windsurf / 继续 after practical installation
-- [ ] Add automated cleanup script (bash) as optional tool
-- [ ] Add integration tests against common extension patterns
+### Changed
+- Merged bilingual CLAUDE.md content into SKILL.md as the canonical reference
